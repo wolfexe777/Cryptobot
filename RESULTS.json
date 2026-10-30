@@ -1,0 +1,849 @@
+{
+  "protocol": {
+    "dataset_sha256": "4d07ff952828a058626eeeb1a48ceec6d93f594e763bce0ea977c391a4cf7962",
+    "source_hashes": {
+      "compare_swing.py": "12f87944e77f0c812b22991e0a025ccab16ffa35762dd156c6115565dc463519",
+      "broker.py": "8246bb1dfb338667a3857e56d1d96f0f679b1429dd8f23ec9c892c6e4a80f85a",
+      "market.py": "638f23bac636b441e6027951128227d657cf560373523d4ae4751c892660f47a"
+    },
+    "segments": {
+      "training": [
+        1000,
+        5108
+      ],
+      "validation": [
+        5108,
+        7124
+      ],
+      "final": [
+        7124,
+        9140
+      ]
+    },
+    "candidates": [
+      {
+        "id": "channel_swing:12:0",
+        "family": "channel_swing",
+        "signal": "channel_swing:12",
+        "risk": {
+          "stop_atr": 2,
+          "trail_atr": 3,
+          "max_hold": 1440
+        }
+      },
+      {
+        "id": "channel_swing:12:1",
+        "family": "channel_swing",
+        "signal": "channel_swing:12",
+        "risk": {
+          "stop_atr": 2.5,
+          "trail_atr": 4,
+          "max_hold": 2880
+        }
+      },
+      {
+        "id": "channel_swing:24:0",
+        "family": "channel_swing",
+        "signal": "channel_swing:24",
+        "risk": {
+          "stop_atr": 2,
+          "trail_atr": 3,
+          "max_hold": 1440
+        }
+      },
+      {
+        "id": "channel_swing:24:1",
+        "family": "channel_swing",
+        "signal": "channel_swing:24",
+        "risk": {
+          "stop_atr": 2.5,
+          "trail_atr": 4,
+          "max_hold": 2880
+        }
+      },
+      {
+        "id": "momentum_swing:12:0",
+        "family": "momentum_swing",
+        "signal": "momentum_swing:12",
+        "risk": {
+          "stop_atr": 2,
+          "trail_atr": 3,
+          "max_hold": 1440
+        }
+      },
+      {
+        "id": "momentum_swing:12:1",
+        "family": "momentum_swing",
+        "signal": "momentum_swing:12",
+        "risk": {
+          "stop_atr": 2.5,
+          "trail_atr": 4,
+          "max_hold": 2880
+        }
+      },
+      {
+        "id": "momentum_swing:24:0",
+        "family": "momentum_swing",
+        "signal": "momentum_swing:24",
+        "risk": {
+          "stop_atr": 2,
+          "trail_atr": 3,
+          "max_hold": 1440
+        }
+      },
+      {
+        "id": "momentum_swing:24:1",
+        "family": "momentum_swing",
+        "signal": "momentum_swing:24",
+        "risk": {
+          "stop_atr": 2.5,
+          "trail_atr": 4,
+          "max_hold": 2880
+        }
+      },
+      {
+        "id": "compression_swing:12:0",
+        "family": "compression_swing",
+        "signal": "compression_swing:12",
+        "risk": {
+          "stop_atr": 2,
+          "trail_atr": 3,
+          "max_hold": 1440
+        }
+      },
+      {
+        "id": "compression_swing:12:1",
+        "family": "compression_swing",
+        "signal": "compression_swing:12",
+        "risk": {
+          "stop_atr": 2.5,
+          "trail_atr": 4,
+          "max_hold": 2880
+        }
+      },
+      {
+        "id": "compression_swing:24:0",
+        "family": "compression_swing",
+        "signal": "compression_swing:24",
+        "risk": {
+          "stop_atr": 2,
+          "trail_atr": 3,
+          "max_hold": 1440
+        }
+      },
+      {
+        "id": "compression_swing:24:1",
+        "family": "compression_swing",
+        "signal": "compression_swing:24",
+        "risk": {
+          "stop_atr": 2.5,
+          "trail_atr": 4,
+          "max_hold": 2880
+        }
+      }
+    ],
+    "base_trade": {
+      "stop": "0.012",
+      "take": "1",
+      "direction": "both",
+      "max_hold": 30,
+      "cooldown": 60,
+      "allocation": "0.10",
+      "leverage": 1,
+      "fee": "0.00075",
+      "slippage": "0.0002",
+      "balance": "10000",
+      "daily_loss_pct": "0.3",
+      "total_loss_pct": "1",
+      "daily_entries": 4,
+      "loss_streak": 3
+    },
+    "criteria": "Train>=8, val>=3; positive train/val/each training half; val PF>=1.15; final>=3, PF>=1.15 and positive at normal/1.5x/2x slippage",
+    "selection": "Eligible first; validation net, training net, then first declared candidate",
+    "caveat": "Reused history already inspected in previous experiments. Final held out only within this comparison; never evidence of independent future profit.",
+    "execution": "Unchanged exact core broker costs and limits; next-open entry with past ATR; close-based trailing changes take effect next bar; no fixed take; hold up to 24/48h"
+  },
+  "selection_sha256": "74d5b9f505ba0f8a13e430cc7ae9229a9ccb0503d25faf3f6ba29bc726230da8",
+  "dataset": {
+    "source": "Previously downloaded real Gate data; later dataset wins overlaps",
+    "contract": "ETH_USDT",
+    "interval": "5m",
+    "bar_ms": 300000,
+    "start": 1790366700000,
+    "end": 1793108700000,
+    "count": 9140,
+    "sha256": "4d07ff952828a058626eeeb1a48ceec6d93f594e763bce0ea977c391a4cf7962",
+    "sources": [
+      "a2e17445a403362b636936f7fdf41d3e593413976f2f6afbf3b1d21555fc1dbd",
+      "2ef657d1afd567e9b0a3abe16150ab681f277da052f8a43a810f1b691a2445c0"
+    ],
+    "overlap_conflicts": 31,
+    "evaluation_role": "reused_history_internal_comparison_not_untouched_market"
+  },
+  "rows": [
+    {
+      "id": "channel_swing:12:0",
+      "family": "channel_swing",
+      "signal": "channel_swing:12",
+      "risk": {
+        "stop_atr": 2,
+        "trail_atr": 3,
+        "max_hold": 1440
+      },
+      "training": {
+        "metrics": {
+          "wallet": "9992.2881874902",
+          "equity": "9992.2881874902",
+          "net_pnl": "-7.7118125098",
+          "mark_to_market_pnl": "-7.7118125098",
+          "exit_cost": "0",
+          "exit_fee": "0",
+          "return_pct": "-0.07711812509800",
+          "max_drawdown_pct": "0.5820431666581073475100975198254628734854",
+          "fees": "8.808871650",
+          "funding": "0.0901408598",
+          "realized_pnl": "-7.7118125098",
+          "profit_factor": "0.8383835491681428920697523745586996341351",
+          "avg_hold_minutes": 653.3333333333334,
+          "trades": 6,
+          "wins": 2,
+          "win_rate": 33.33333333333333,
+          "liquidations": 0,
+          "last_timestamp": 1791898800000,
+          "position": false,
+          "risk_status": "active",
+          "daily_entries": 0
+        },
+        "exits": {
+          "stop_loss": 4,
+          "time_limit": 1,
+          "trailing_stop": 1
+        }
+      },
+      "validation": {
+        "metrics": {
+          "wallet": "9966.0088289742",
+          "equity": "9966.0088289742",
+          "net_pnl": "-33.9911710258",
+          "mark_to_market_pnl": "-33.9911710258",
+          "exit_cost": "0",
+          "exit_fee": "0",
+          "return_pct": "-0.33991171025800",
+          "max_drawdown_pct": "0.7715350335175688666355308657829153681381",
+          "fees": "5.919420300",
+          "funding": "-0.1246492742",
+          "realized_pnl": "-33.9911710258",
+          "profit_factor": "0.2813339391082337804692327562110458392441",
+          "avg_hold_minutes": 490.0,
+          "trades": 4,
+          "wins": 1,
+          "win_rate": 25.0,
+          "liquidations": 0,
+          "last_timestamp": 1792503600000,
+          "position": false,
+          "risk_status": "active",
+          "daily_entries": 0
+        },
+        "exits": {
+          "trailing_stop": 1,
+          "stop_loss": 3
+        }
+      },
+      "training_halves": [
+        {
+          "metrics": {
+            "wallet": "9974.7592145992",
+            "equity": "9974.7592145992",
+            "net_pnl": "-25.2407854008",
+            "mark_to_market_pnl": "-25.2407854008",
+            "exit_cost": "0",
+            "exit_fee": "0",
+            "return_pct": "-0.25240785400800",
+            "max_drawdown_pct": "0.2869235434004980341334448653291907114089",
+            "fees": "2.944039500",
+            "funding": "0.0235459008",
+            "realized_pnl": "-25.2407854008",
+            "profit_factor": "0E+10",
+            "avg_hold_minutes": 332.5,
+            "trades": 2,
+            "wins": 0,
+            "win_rate": 0.0,
+            "liquidations": 0,
+            "last_timestamp": 1791282600000,
+            "position": false,
+            "risk_status": "active",
+            "daily_entries": 0
+          },
+          "exits": {
+            "stop_loss": 2
+          }
+        },
+        {
+          "metrics": {
+            "wallet": "10017.2121118742",
+            "equity": "10017.2121118742",
+            "net_pnl": "17.2121118742",
+            "mark_to_market_pnl": "17.2121118742",
+            "exit_cost": "0",
+            "exit_fee": "0",
+            "return_pct": "0.17212111874200",
+            "max_drawdown_pct": "0.5837298306393164880309642871827729469253",
+            "fees": "5.903116275",
+            "funding": "0.0666718508",
+            "realized_pnl": "17.2121118742",
+            "profit_factor": "1.755154659420478428674881907447665588271",
+            "avg_hold_minutes": 813.75,
+            "trades": 4,
+            "wins": 2,
+            "win_rate": 50.0,
+            "liquidations": 0,
+            "last_timestamp": 1791898800000,
+            "position": false,
+            "risk_status": "active",
+            "daily_entries": 0
+          },
+          "exits": {
+            "time_limit": 1,
+            "trailing_stop": 1,
+            "stop_loss": 2
+          }
+        }
+      ],
+      "eligible": false,
+      "final": {
+        "metrics": {
+          "wallet": "9995.1298813108",
+          "equity": "9995.1298813108",
+          "net_pnl": "-4.8701186892",
+          "mark_to_market_pnl": "-4.8701186892",
+          "exit_cost": "0",
+          "exit_fee": "0",
+          "return_pct": "-0.04870118689200",
+          "max_drawdown_pct": "0.3556286168376382894946117582848328341772",
+          "fees": "4.457463000",
+          "funding": "-0.1209443108",
+          "realized_pnl": "-4.8701186892",
+          "profit_factor": "0.6266591942346140202890198861390127387671",
+          "avg_hold_minutes": 750.0,
+          "trades": 3,
+          "wins": 2,
+          "win_rate": 66.66666666666666,
+          "liquidations": 0,
+          "last_timestamp": 1793108400000,
+          "position": false,
+          "risk_status": "active",
+          "daily_entries": 0
+        },
+        "exits": {
+          "trailing_stop": 2,
+          "time_limit": 1
+        }
+      },
+      "stress_15": {
+        "metrics": {
+          "wallet": "9994.8306594608",
+          "equity": "9994.8306594608",
+          "net_pnl": "-5.1693405392",
+          "mark_to_market_pnl": "-5.1693405392",
+          "exit_cost": "0",
+          "exit_fee": "0",
+          "return_pct": "-0.05169340539200",
+          "max_drawdown_pct": "0.3546428696096291624308560455847160778359",
+          "fees": "4.457684850",
+          "funding": "-0.1209443108",
+          "realized_pnl": "-5.1693405392",
+          "profit_factor": "0.6097521070494006584063271416735048314518",
+          "avg_hold_minutes": 745.0,
+          "trades": 3,
+          "wins": 2,
+          "win_rate": 66.66666666666666,
+          "liquidations": 0,
+          "last_timestamp": 1793108400000,
+          "position": false,
+          "risk_status": "active",
+          "daily_entries": 0
+        },
+        "exits": {
+          "trailing_stop": 2,
+          "time_limit": 1
+        }
+      },
+      "stress_20": {
+        "metrics": {
+          "wallet": "9994.5316434608",
+          "equity": "9994.5316434608",
+          "net_pnl": "-5.4683565392",
+          "mark_to_market_pnl": "-5.4683565392",
+          "exit_cost": "0",
+          "exit_fee": "0",
+          "return_pct": "-0.05468356539200",
+          "max_drawdown_pct": "0.3537367443547690506074827156695572990796",
+          "fees": "4.457900850",
+          "funding": "-0.1209443108",
+          "realized_pnl": "-5.4683565392",
+          "profit_factor": "0.5933672417516646579714321401286022764339",
+          "avg_hold_minutes": 745.0,
+          "trades": 3,
+          "wins": 2,
+          "win_rate": 66.66666666666666,
+          "liquidations": 0,
+          "last_timestamp": 1793108400000,
+          "position": false,
+          "risk_status": "active",
+          "daily_entries": 0
+        },
+        "exits": {
+          "trailing_stop": 2,
+          "time_limit": 1
+        }
+      },
+      "passes_internal_gates": false,
+      "name": "Часовой канал и сопровождение тренда"
+    },
+    {
+      "id": "momentum_swing:24:0",
+      "family": "momentum_swing",
+      "signal": "momentum_swing:24",
+      "risk": {
+        "stop_atr": 2,
+        "trail_atr": 3,
+        "max_hold": 1440
+      },
+      "training": {
+        "metrics": {
+          "wallet": "10023.7697537385",
+          "equity": "10023.7697537385",
+          "net_pnl": "23.7697537385",
+          "mark_to_market_pnl": "23.7697537385",
+          "exit_cost": "0",
+          "exit_fee": "0",
+          "return_pct": "0.23769753738500",
+          "max_drawdown_pct": "0.5109169198452982720809808354628801841823",
+          "fees": "11.728080075",
+          "funding": "0.0328661865",
+          "realized_pnl": "23.7697537385",
+          "profit_factor": "1.598854802174193946807429961961061757207",
+          "avg_hold_minutes": 1018.75,
+          "trades": 8,
+          "wins": 5,
+          "win_rate": 62.5,
+          "liquidations": 0,
+          "last_timestamp": 1791898800000,
+          "position": false,
+          "risk_status": "active",
+          "daily_entries": 0
+        },
+        "exits": {
+          "stop_loss": 3,
+          "trailing_stop": 2,
+          "time_limit": 3
+        }
+      },
+      "validation": {
+        "metrics": {
+          "wallet": "9973.3420073488",
+          "equity": "9973.3420073488",
+          "net_pnl": "-26.6579926512",
+          "mark_to_market_pnl": "-26.6579926512",
+          "exit_cost": "0",
+          "exit_fee": "0",
+          "return_pct": "-0.26657992651200",
+          "max_drawdown_pct": "0.6985208464017161275243751882923834433441",
+          "fees": "7.439478525",
+          "funding": "-0.1919858738",
+          "realized_pnl": "-26.6579926512",
+          "profit_factor": "0.3375025770755500532495848036175853914218",
+          "avg_hold_minutes": 522.0,
+          "trades": 5,
+          "wins": 2,
+          "win_rate": 40.0,
+          "liquidations": 0,
+          "last_timestamp": 1792503600000,
+          "position": false,
+          "risk_status": "active",
+          "daily_entries": 0
+        },
+        "exits": {
+          "trailing_stop": 2,
+          "stop_loss": 3
+        }
+      },
+      "training_halves": [
+        {
+          "metrics": {
+            "wallet": "9961.0555374424",
+            "equity": "9961.0555374424",
+            "net_pnl": "-38.9444625576",
+            "mark_to_market_pnl": "-38.9444625576",
+            "exit_cost": "0",
+            "exit_fee": "0",
+            "return_pct": "-0.38944462557600",
+            "max_drawdown_pct": "0.5109169198452982720809808354628801841823",
+            "fees": "5.874206025",
+            "funding": "0.0125565326",
+            "realized_pnl": "-38.9444625576",
+            "profit_factor": "0.01883382229000743105858062354123947531502",
+            "avg_hold_minutes": 742.5,
+            "trades": 4,
+            "wins": 1,
+            "win_rate": 25.0,
+            "liquidations": 0,
+            "last_timestamp": 1791282600000,
+            "position": false,
+            "risk_status": "active",
+            "daily_entries": 0
+          },
+          "exits": {
+            "stop_loss": 3,
+            "trailing_stop": 1
+          }
+        },
+        {
+          "metrics": {
+            "wallet": "10063.6270418642",
+            "equity": "10063.6270418642",
+            "net_pnl": "63.6270418642",
+            "mark_to_market_pnl": "63.6270418642",
+            "exit_cost": "0",
+            "exit_fee": "0",
+            "return_pct": "0.63627041864200",
+            "max_drawdown_pct": "0.3763790625782730693238783610763956107502",
+            "fees": "5.929617075",
+            "funding": "0.0196410608",
+            "realized_pnl": "63.6270418642",
+            "profit_factor": null,
+            "avg_hold_minutes": 1295.0,
+            "trades": 4,
+            "wins": 4,
+            "win_rate": 100.0,
+            "liquidations": 0,
+            "last_timestamp": 1791898800000,
+            "position": false,
+            "risk_status": "active",
+            "daily_entries": 0
+          },
+          "exits": {
+            "time_limit": 3,
+            "trailing_stop": 1
+          }
+        }
+      ],
+      "eligible": false,
+      "final": {
+        "metrics": {
+          "wallet": "10007.0058725125",
+          "equity": "10007.0058725125",
+          "net_pnl": "7.0058725125",
+          "mark_to_market_pnl": "7.0058725125",
+          "exit_cost": "0",
+          "exit_fee": "0",
+          "return_pct": "0.07005872512500",
+          "max_drawdown_pct": "0.3354210105385646253622053224988351688564",
+          "fees": "5.922296925",
+          "funding": "-0.2174694375",
+          "realized_pnl": "7.0058725125",
+          "profit_factor": "1.635213147116669105233052119030985341382",
+          "avg_hold_minutes": 1056.25,
+          "trades": 4,
+          "wins": 2,
+          "win_rate": 50.0,
+          "liquidations": 0,
+          "last_timestamp": 1793108400000,
+          "position": false,
+          "risk_status": "active",
+          "daily_entries": 0
+        },
+        "exits": {
+          "trailing_stop": 2,
+          "time_limit": 2
+        }
+      },
+      "stress_15": {
+        "metrics": {
+          "wallet": "10006.5138565125",
+          "equity": "10006.5138565125",
+          "net_pnl": "6.5138565125",
+          "mark_to_market_pnl": "6.5138565125",
+          "exit_cost": "0",
+          "exit_fee": "0",
+          "return_pct": "0.06513856512500",
+          "max_drawdown_pct": "0.3364364193201362986578984028068332241160",
+          "fees": "5.922512925",
+          "funding": "-0.2174694375",
+          "realized_pnl": "6.5138565125",
+          "profit_factor": "1.570202101011322135966955002224423457305",
+          "avg_hold_minutes": 1056.25,
+          "trades": 4,
+          "wins": 2,
+          "win_rate": 50.0,
+          "liquidations": 0,
+          "last_timestamp": 1793108400000,
+          "position": false,
+          "risk_status": "active",
+          "daily_entries": 0
+        },
+        "exits": {
+          "trailing_stop": 2,
+          "time_limit": 2
+        }
+      },
+      "stress_20": {
+        "metrics": {
+          "wallet": "10006.0216346625",
+          "equity": "10006.0216346625",
+          "net_pnl": "6.0216346625",
+          "mark_to_market_pnl": "6.0216346625",
+          "exit_cost": "0",
+          "exit_fee": "0",
+          "return_pct": "0.06021634662500",
+          "max_drawdown_pct": "0.3374141047776975769620735066842054224465",
+          "fees": "5.922734775",
+          "funding": "-0.2174694375",
+          "realized_pnl": "6.0216346625",
+          "profit_factor": "1.509514906355329016544330027161913144203",
+          "avg_hold_minutes": 1056.25,
+          "trades": 4,
+          "wins": 2,
+          "win_rate": 50.0,
+          "liquidations": 0,
+          "last_timestamp": 1793108400000,
+          "position": false,
+          "risk_status": "active",
+          "daily_entries": 0
+        },
+        "exits": {
+          "trailing_stop": 2,
+          "time_limit": 2
+        }
+      },
+      "passes_internal_gates": false,
+      "name": "Инерция 12–24 часов с фильтром тренда"
+    },
+    {
+      "id": "compression_swing:24:0",
+      "family": "compression_swing",
+      "signal": "compression_swing:24",
+      "risk": {
+        "stop_atr": 2,
+        "trail_atr": 3,
+        "max_hold": 1440
+      },
+      "training": {
+        "metrics": {
+          "wallet": "10027.5821452154",
+          "equity": "10027.5821452154",
+          "net_pnl": "27.5821452154",
+          "mark_to_market_pnl": "27.5821452154",
+          "exit_cost": "0",
+          "exit_fee": "0",
+          "return_pct": "0.27582145215400",
+          "max_drawdown_pct": "0.1444525062735417735643993093072028770177",
+          "fees": "1.452249075",
+          "funding": "0.0365057096",
+          "realized_pnl": "27.5821452154",
+          "profit_factor": null,
+          "avg_hold_minutes": 1440.0,
+          "trades": 1,
+          "wins": 1,
+          "win_rate": 100.0,
+          "liquidations": 0,
+          "last_timestamp": 1791898800000,
+          "position": false,
+          "risk_status": "active",
+          "daily_entries": 0
+        },
+        "exits": {
+          "time_limit": 1
+        }
+      },
+      "validation": {
+        "metrics": {
+          "wallet": "9963.8028881700",
+          "equity": "9963.8028881700",
+          "net_pnl": "-36.1971118300",
+          "mark_to_market_pnl": "-36.1971118300",
+          "exit_cost": "0",
+          "exit_fee": "0",
+          "return_pct": "-0.361971118300",
+          "max_drawdown_pct": "0.6744497459158496346312780475331148644170",
+          "fees": "4.470290700",
+          "funding": "-0.0249788700",
+          "realized_pnl": "-36.1971118300",
+          "profit_factor": "0.07204908387166883989901936892245347906575",
+          "avg_hold_minutes": 470.0,
+          "trades": 3,
+          "wins": 1,
+          "win_rate": 33.33333333333333,
+          "liquidations": 0,
+          "last_timestamp": 1792503600000,
+          "position": false,
+          "risk_status": "active",
+          "daily_entries": 0
+        },
+        "exits": {
+          "stop_loss": 2,
+          "trailing_stop": 1
+        }
+      },
+      "training_halves": [
+        {
+          "metrics": {
+            "wallet": "10000",
+            "equity": "10000",
+            "net_pnl": "0",
+            "mark_to_market_pnl": "0",
+            "exit_cost": "0",
+            "exit_fee": "0",
+            "return_pct": "0",
+            "max_drawdown_pct": "0",
+            "fees": "0",
+            "funding": "0",
+            "realized_pnl": "0",
+            "profit_factor": null,
+            "avg_hold_minutes": 0,
+            "trades": 0,
+            "wins": 0,
+            "win_rate": 0,
+            "liquidations": 0,
+            "last_timestamp": 1791282600000,
+            "position": false,
+            "risk_status": "active",
+            "daily_entries": 0
+          },
+          "exits": {}
+        },
+        {
+          "metrics": {
+            "wallet": "10027.5821452154",
+            "equity": "10027.5821452154",
+            "net_pnl": "27.5821452154",
+            "mark_to_market_pnl": "27.5821452154",
+            "exit_cost": "0",
+            "exit_fee": "0",
+            "return_pct": "0.27582145215400",
+            "max_drawdown_pct": "0.1444525062735417735643993093072028770177",
+            "fees": "1.452249075",
+            "funding": "0.0365057096",
+            "realized_pnl": "27.5821452154",
+            "profit_factor": null,
+            "avg_hold_minutes": 1440.0,
+            "trades": 1,
+            "wins": 1,
+            "win_rate": 100.0,
+            "liquidations": 0,
+            "last_timestamp": 1791898800000,
+            "position": false,
+            "risk_status": "active",
+            "daily_entries": 0
+          },
+          "exits": {
+            "time_limit": 1
+          }
+        }
+      ],
+      "eligible": false,
+      "final": {
+        "metrics": {
+          "wallet": "10018.6924501582",
+          "equity": "10018.6924501582",
+          "net_pnl": "18.6924501582",
+          "mark_to_market_pnl": "18.6924501582",
+          "exit_cost": "0",
+          "exit_fee": "0",
+          "return_pct": "0.18692450158200",
+          "max_drawdown_pct": "0.1584997124561852832041850288714332509195",
+          "fees": "1.475425350",
+          "funding": "-0.1548755082",
+          "realized_pnl": "18.6924501582",
+          "profit_factor": null,
+          "avg_hold_minutes": 1070.0,
+          "trades": 1,
+          "wins": 1,
+          "win_rate": 100.0,
+          "liquidations": 0,
+          "last_timestamp": 1793108400000,
+          "position": false,
+          "risk_status": "active",
+          "daily_entries": 0
+        },
+        "exits": {
+          "trailing_stop": 1
+        }
+      },
+      "stress_15": {
+        "metrics": {
+          "wallet": "10018.4992501582",
+          "equity": "10018.4992501582",
+          "net_pnl": "18.4992501582",
+          "mark_to_market_pnl": "18.4992501582",
+          "exit_cost": "0",
+          "exit_fee": "0",
+          "return_pct": "0.18499250158200",
+          "max_drawdown_pct": "0.1594646378519827498013267513640510164269",
+          "fees": "1.475425350",
+          "funding": "-0.1548755082",
+          "realized_pnl": "18.4992501582",
+          "profit_factor": null,
+          "avg_hold_minutes": 1070.0,
+          "trades": 1,
+          "wins": 1,
+          "win_rate": 100.0,
+          "liquidations": 0,
+          "last_timestamp": 1793108400000,
+          "position": false,
+          "risk_status": "active",
+          "daily_entries": 0
+        },
+        "exits": {
+          "trailing_stop": 1
+        }
+      },
+      "stress_20": {
+        "metrics": {
+          "wallet": "10018.3018533082",
+          "equity": "10018.3018533082",
+          "net_pnl": "18.3018533082",
+          "mark_to_market_pnl": "18.3018533082",
+          "exit_cost": "0",
+          "exit_fee": "0",
+          "return_pct": "0.18301853308200",
+          "max_drawdown_pct": "0.1604296489113555950939561222949546386458",
+          "fees": "1.475422200",
+          "funding": "-0.1548755082",
+          "realized_pnl": "18.3018533082",
+          "profit_factor": null,
+          "avg_hold_minutes": 1070.0,
+          "trades": 1,
+          "wins": 1,
+          "win_rate": 100.0,
+          "liquidations": 0,
+          "last_timestamp": 1793108400000,
+          "position": false,
+          "risk_status": "active",
+          "daily_entries": 0
+        },
+        "exits": {
+          "trailing_stop": 1
+        }
+      },
+      "passes_internal_gates": false,
+      "name": "Выход из сжатия волатильности"
+    }
+  ],
+  "periods": {
+    "training": {
+      "start": "2026-09-29T07:25:00+00:00",
+      "end": "2026-10-13T13:45:00+00:00"
+    },
+    "validation": {
+      "start": "2026-10-13T13:45:00+00:00",
+      "end": "2026-10-20T13:45:00+00:00"
+    },
+    "final": {
+      "start": "2026-10-20T13:45:00+00:00",
+      "end": "2026-10-27T13:45:00+00:00"
+    }
+  },
+  "approved_for_live": false,
+  "independent_profitability_verified": false
+}
