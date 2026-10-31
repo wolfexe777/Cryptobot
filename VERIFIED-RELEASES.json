@@ -1,0 +1,18 @@
+[
+  {
+    "source": "zcash_github",
+    "entries": 10,
+    "first_title": "v6.20.0",
+    "time_kind": "updated_only",
+    "can_signal": false,
+    "observed_at": 1793470354865
+  },
+  {
+    "source": "zebra_github",
+    "entries": 10,
+    "first_title": "Zebra 7.1.0-alpha.0",
+    "time_kind": "updated_only",
+    "can_signal": false,
+    "observed_at": 1793470355623
+  }
+]
